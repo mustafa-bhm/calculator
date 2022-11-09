@@ -12,8 +12,9 @@ let operation;
 let curValue = "";
 let prevValue = "";
 
-// get the value when btns clicked
+/***  Functions  *****/
 
+// get the value when btns clicked
 function getNumberClicked(number) {
   if (number == "." && curValue.includes(".")) return;
   if (curValue == "0" && number != ".") {
@@ -55,25 +56,8 @@ function clear() {
 }
 
 function del() {
-  curValue = curValue.toString().slice(0, -1);
+  curValue = curValue.slice(0, -1);
 }
-
-// adding event listenner to Num buttons
-numButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    getNumberClicked(btn.innerHTML);
-    updateDisplay();
-  });
-});
-
-// adding event listenner to operators buttons
-
-operators.forEach((button) => {
-  button.addEventListener("click", () => {
-    setOperator(button.innerText);
-    updateDisplay();
-  });
-});
 
 function calculate() {
   let result;
@@ -101,6 +85,25 @@ function calculate() {
   prevValue = "";
 }
 
+/*** Event Listenners */
+
+// adding event listenner to Num buttons
+numButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    getNumberClicked(btn.innerHTML);
+    updateDisplay();
+  });
+});
+
+// adding event listenner to operators buttons
+
+operators.forEach((button) => {
+  button.addEventListener("click", () => {
+    setOperator(button.innerText);
+    updateDisplay();
+  });
+});
+
 // add event listenner to the equal btn
 equalBtn.addEventListener("click", () => {
   calculate();
@@ -113,6 +116,7 @@ clearBtn.addEventListener("click", () => {
   updateDisplay();
 });
 
+// Event listenner to del btn
 deletbtn.addEventListener("click", () => {
   del();
   updateDisplay();
