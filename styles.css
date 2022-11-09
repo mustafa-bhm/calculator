@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btns {
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+.display {
+  border: 1px solid black;
+  padding: 19px 60px;
+}/*# sourceMappingURL=styles.css.map */
