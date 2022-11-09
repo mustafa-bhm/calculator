@@ -2,7 +2,7 @@
 const numButtons = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operator");
 const delet = document.querySelector(".delete");
-const clear = document.querySelector(".clear");
+const clearBtn = document.querySelector(".clear");
 const displayBottom = document.querySelector(".display1");
 const displayTop = document.querySelector(".display2");
 const equalBtn = document.querySelector(".equal");
@@ -46,9 +46,16 @@ function setOperator(operator) {
   prevValue = curValue;
   curValue = "";
 }
+function clear() {
+  operation = undefined;
+  curValue = "";
+  prevValue = "";
+  displayBottom.innerHTML = "";
+  displayTop.innerHTML = "";
+}
 
 // adding event listenner to Num buttons
-Array.from(numButtons).forEach((btn) => {
+numButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     getNumberClicked(btn.innerHTML);
     updateDisplay();
@@ -57,7 +64,7 @@ Array.from(numButtons).forEach((btn) => {
 
 // adding event listenner to operators buttons
 
-Array.from(operators).forEach((button) => {
+operators.forEach((button) => {
   button.addEventListener("click", () => {
     setOperator(button.innerText);
     updateDisplay();
@@ -91,7 +98,13 @@ function calculate() {
 }
 
 // add event listenner to the equal btn
-equalBtn.addEventListener("click", (button) => {
+equalBtn.addEventListener("click", () => {
   calculate();
+  updateDisplay();
+});
+
+// add event listenner to the clear btn
+clearBtn.addEventListener("click", () => {
+  clear();
   updateDisplay();
 });
