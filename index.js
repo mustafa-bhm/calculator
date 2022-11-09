@@ -1,7 +1,7 @@
 /// to select elemnts from HTMl
 const numButtons = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operator");
-const delet = document.querySelector(".delete");
+const deletbtn = document.querySelector(".delete");
 const clearBtn = document.querySelector(".clear");
 const displayBottom = document.querySelector(".display1");
 const displayTop = document.querySelector(".display2");
@@ -52,6 +52,10 @@ function clear() {
   prevValue = "";
   displayBottom.innerHTML = "";
   displayTop.innerHTML = "";
+}
+
+function del() {
+  curValue = curValue.toString().slice(0, -1);
 }
 
 // adding event listenner to Num buttons
@@ -106,5 +110,10 @@ equalBtn.addEventListener("click", () => {
 // add event listenner to the clear btn
 clearBtn.addEventListener("click", () => {
   clear();
+  updateDisplay();
+});
+
+deletbtn.addEventListener("click", () => {
+  del();
   updateDisplay();
 });
