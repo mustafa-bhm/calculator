@@ -59,4 +59,30 @@ body {
 .display2 {
   color: black;
   font-size: 0.9rem;
+}
+
+.wide4 {
+  margin-top: 1rem;
+  grid-column: span 4;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.footer p {
+  font-size: 0.8rem;
+}
+.footer a {
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: black;
+}
+
+.footer img {
+  width: 2rem;
+  height: 2rem;
+  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.4));
 }/*# sourceMappingURL=styles.css.map */
